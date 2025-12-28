@@ -1,29 +1,24 @@
 # pps-pd-powersupply
 
-A USB-C Power Delivery (PD) sink–based programmable power supply with PPS support, designed for embedded and power-electronics applications requiring negotiated, adjustable DC input from modern USB-C adapters.
+## Highlights
+
+- USB-C Power Delivery breakout-board using PPS protocol  
+- Variable, regulated output voltage from **5 V to 24 V**  
+- Dynamic voltage and current negotiation with PD-compliant chargers  
+- I²C-controlled configuration and monitoring via external MCU  
+- Integrated protection: OVP, UVP, OCP, and OTP  
 
 ---
 
 ## Overview
 
-`pps-pd-powersupply` implements a USB-C PD sink system capable of dynamically negotiating voltage and current using the USB Power Delivery specification (PD 3.x with PPS). The project is intended for applications where a flexible, standards-compliant DC power input is required, including embedded systems, automotive electronics, development platforms, and power experimentation setups.
+This project implements a programmable DC power supply that takes power from a USB-C Power Delivery adapter and outputs an adjustable voltage suitable for embedded systems and power electronics applications. It was developed to explore practical USB-C PD negotiation, safe power-path control, and firmware–hardware interaction in modern power systems.
 
-The design offloads USB PD protocol handling to a dedicated PD sink controller and exposes configuration and monitoring through an I²C interface. An external microcontroller selects power profiles, monitors system state, and enforces safety limits.
+The goal is to replace fixed-voltage adapters with a single, flexible USB-C input capable of powering a wide range of devices through negotiated, standards-compliant power delivery.
 
 ---
 
-## Key Features
+## Authors
 
-- USB Power Delivery sink operation with PPS support  
-- Programmable voltage and current selection via I²C  
-- Dynamic PDO/APDO negotiation with compliant USB-C chargers  
-- Integrated safety mechanisms:
-  - Over-voltage protection (OVP)
-  - Under-voltage protection (UVP)
-  - Over-current protection (OCP)
-  - Over-temperature protection (OTP)
-- External NMOS-based power-path control  
-- USB Type-C cable orientation (CC flip) detection  
-- Designed for integration with external host microcontrollers  
-
-
+**Sujin Shakya**  
+GitHub: https://github.com/sujinshakyaut

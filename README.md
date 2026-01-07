@@ -1,6 +1,7 @@
-# I2C-enabled USB-C Power Supply
+# PPS-Enabled USB-C Power Supply (I2C Integrated)
 
 ![Board](https://github.com/user-attachments/assets/0ff5ac3c-2cdf-4d28-b5ed-92fe5b61096c)
+Fig: Board Layout
 
 ## Highlights
 
@@ -14,35 +15,49 @@
 
 ## Description
 
-By leveraging the **Programmable Power Supply (PPS)** capability of USB-C PD, the board provides a wide, adjustable voltage range without requiring custom USB-PD firmware on the host microcontroller.
+The **I²C-Enabled USB-C Power Supply** is a programmable DC power source built around the **AP33772S USB Type-C® PD 3.1 sink controller**. It converts a standard USB-C Power Delivery adapter into an adjustable output supply, supporting **PPS (up to 21 V)** and **EPR/AVS (up to 28 V)** for flexible, standards-compliant power delivery.
 
-A **standalone PD sink controller** manages all power negotiation with the charger, exposing a clean and lightweight **I²C interface** for voltage, current, and status control. This keeps firmware simple while maintaining full standards compliance.
+All USB-PD negotiation is handled by the AP33772S, allowing an external microcontroller to configure voltage, current, and protection thresholds through a simple **I²C interface**—no USB-PD firmware required. The board integrates essential safety features including **OVP, UVP, OCP, OTP** and external NTC-based thermal monitoring.
 
-Designed with flexibility and safety in mind, the board integrates essential protection and monitoring features, making it well-suited for embedded systems, power electronics prototyping, and USB-C PD experimentation.
+Status feedback is provided via an onboard **PD status LED**, making the board well suited for programmable power supplies, embedded systems, and USB-C PD development.
 
 ---
 
 ## Easy I²C Control
 
-All configuration and monitoring is performed over I²C by the given code. No separate configurations are required:
+The board exposes a **register-based I²C interface** for full configuration and monitoring. The host MCU can programmatically:
 
-- Set output voltage and current limits
-- Read negotiated PD contract parameters
-- Monitor fault and protection status in real time
+- Set precise output voltage and current limits according to the PD contract  
+- Query negotiated PD parameters, including voltage, current, and power delivery status  
+- Monitor real-time fault conditions and protection events (OVP, UVP, OCP, OTP)  
+
+All USB-PD negotiation and safety enforcement are managed internally by the **AP33772S**, allowing the MCU to focus on application-level control without handling the PD protocol stack.
+
+---
+
+Specifications
+
+- **Output Voltage:** 5 V – 24 V (PPS), dynamically adjustable via I²C  
+- **Power Delivery Support:** USB-C PD 3.1 with PPS and SPR/EPR profiles  
+- **Maximum Current:** Dependent on PD contract and charger capabilities  
+- **Protection Features:** Over-Voltage (OVP), Under-Voltage (UVP), Over-Current (OCP), Over-Temperature (OTP)  
+- **Control Interface:** I²C (register-based) for configuration and monitoring  
+- **Input Source:** USB-C PD-compliant charger  
+- **Status Indicators:** LED for PD negotiation, FLIP pin for cable orientation detection
 
 ---
 
-## Specifications
+## Libraries, Code & Datasheet
 
-- **Output Voltage:** 5 V – 24 V (PPS)
-- **USB-PD Support:** PD 3.1 with PPS
-- **Protection Features:** OVP, UVP, OCP, OTP
-- **Input Source:** USB-C PD-compliant charger
+- **AP33772S Arduino Library:** Official Arduino library supporting I²C communication and PD control. Works on 32‑bit boards like RP2040 and ESP32. [AP33772S Arduino Library (CentyLab)](https://github.com/CentyLab/AP33772S-CentyLab?utm_source=chatgpt.com)  
+- **AP33772S Datasheet:** Full technical datasheet for the USB‑PD sink controller used on this board. [AP33772S Datasheet (Diodes Inc)](https://www.diodes.com/datasheet/download/AP33772S.pdf?utm_source=chatgpt.com)  
+- **Sample Code & EVB Guides:** Includes I²C sample code and evaluation board user guides (Arduino/Raspberry Pi I²C examples). [Eval Board Guide)](https://www.diodes.com/assets/Evaluation-Boards/AP33772S-Sink-Controller-EVB-User-Guide.pdf)
 
----
+
 ## Author
 
 **Sujin Shakya**  
 GitHub: https://github.com/sujinshakyaut 
+
 
 

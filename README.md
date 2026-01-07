@@ -13,6 +13,29 @@ Fig: Board Layout
 
 ---
 
+## Libraries
+
+- [PD Arduino Library (CentyLab)](https://github.com/CentyLab/AP33772S-CentyLab?utm_source=chatgpt.com)
+<img width="488" height="321" alt="image" src="https://github.com/user-attachments/assets/8d805f9e-a49d-40c4-9599-1920624cc547" />
+
+- [PD Controller Sink Datasheet (Diodes Inc)](https://www.diodes.com/datasheet/download/AP33772S.pdf?utm_source=chatgpt.com)  
+- [Sample Evaluation Board Guide)](https://www.diodes.com/assets/Evaluation-Boards/AP33772S-Sink-Controller-EVB-User-Guide.pdf)
+
+---
+
+## Requirements for AVS
+
+To utilize the **AVS (Adjustable Voltage Supply)** profile, you need a **USB-C charger or power bank that supports AVS** and a **high-power USB-C cable rated for at least 240 W**. Compatible devices we have tested include:
+
+- **Framework Laptop Charger** – 180 W  
+- **AMEGAT Powerbank** – 140 W  
+- **Baseus Powerbank** – 140 W  
+- **UGREEN Nexode** – 300 W  
+
+Using a non-AVS charger or an insufficient cable may prevent proper voltage negotiation or limit maximu
+
+
+
 ## Description
 
 The **I²C-Enabled USB-C Power Supply** is a programmable DC power source built around the **AP33772S USB Type-C® PD 3.1 sink controller**. It converts a standard USB-C Power Delivery adapter into an adjustable output supply, supporting **PPS (up to 21 V)** and **EPR/AVS (up to 28 V)** for flexible, standards-compliant power delivery.
@@ -47,17 +70,12 @@ Specifications
 
 ---
 
-## Libraries, Code & Datasheet
-
-- **AP33772S Arduino Library:** Official Arduino library supporting I²C communication and PD control. Works on 32‑bit boards like RP2040 and ESP32. [AP33772S Arduino Library (CentyLab)](https://github.com/CentyLab/AP33772S-CentyLab?utm_source=chatgpt.com)  
-- **AP33772S Datasheet:** Full technical datasheet for the USB‑PD sink controller used on this board. [AP33772S Datasheet (Diodes Inc)](https://www.diodes.com/datasheet/download/AP33772S.pdf?utm_source=chatgpt.com)  
-- **Sample Code & EVB Guides:** Includes I²C sample code and evaluation board user guides (Arduino/Raspberry Pi I²C examples). [Eval Board Guide)](https://www.diodes.com/assets/Evaluation-Boards/AP33772S-Sink-Controller-EVB-User-Guide.pdf)
-
 
 ## Author
 
 **Sujin Shakya**  
 GitHub: https://github.com/sujinshakyaut 
+
 
 
 

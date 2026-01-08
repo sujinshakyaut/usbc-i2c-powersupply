@@ -1,7 +1,6 @@
 # PPS-Enabled USB-C Power Supply (I2C Integrated)
 
 ![Board](https://github.com/user-attachments/assets/0ff5ac3c-2cdf-4d28-b5ed-92fe5b61096c)
-Fig: Board Layout
 
 ## Highlights
 
@@ -75,6 +74,7 @@ Specifications
 
 **Sujin Shakya**  
 GitHub: https://github.com/sujinshakyaut 
+
 
 
 
